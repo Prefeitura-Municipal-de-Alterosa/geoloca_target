@@ -331,7 +331,8 @@ int sendToGoogleSheets(String registro, String latitudeStr, String longitudeStr,
     Serial.println("Enviando coordenadas para Google Sheets...");
     http.begin(url);
     http.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS); // Seguir redirecionamentos
-
+    
+    // teste do http
     int httpCode = http.GET();
     if (httpCode > 0) {
       Serial.printf("HTTP code: %d\n", httpCode);
@@ -352,7 +353,7 @@ int sendToGoogleSheets(String registro, String latitudeStr, String longitudeStr,
     return 0; // Falha
   }
 }
-
+// salvando para o SD as strings de latidutude, longitude e tempo e retronando registro
 void saveToSD(String latitudeStr, String longitudeStr, String dateStr) {
   int registro = 0;
 
@@ -509,7 +510,7 @@ void verificarEnvioCartaoSD() {
       int index2 = registro.indexOf("\n", index1);
       String registroNum = registro.substring(index1, index2);
       registroNum.trim();
-
+    
       int index3 = registro.indexOf("Latitude: ") + 10;
       int index4 = registro.indexOf("\n", index3);
       String latitude = registro.substring(index3, index4);
@@ -571,6 +572,7 @@ void verificarEnvioCartaoSD() {
   clearSDFile();
 }
 
+// Essa função vai conectar ao servidor, fazer o processo do JSON ou retornar os erros que ocorrerem
 void fetchData() {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
