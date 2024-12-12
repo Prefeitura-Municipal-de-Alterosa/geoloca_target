@@ -28,6 +28,7 @@ void smartdelay_gps(unsigned long ms);
 String printDateAndTime(unsigned long epochTime);
 
 // Variáveis para armazenar os dados lidos
+// Função para configuração do Wifi, e do servidor que a placa será conectada
 struct WiFiCredentials {
   String ssid;
   String password;
@@ -36,10 +37,12 @@ std::vector<WiFiCredentials> wifiCredentialsList;
 String serverUrl;
 String placa;
 
+// Pinos da placa para onde serão enviados os comandos
 #define GPS_RX_PIN 12  // Define o pino RX ao qual o módulo GPS está conectado
 #define GPS_TX_PIN 13  // Define o pino TX ao qual o módulo GPS está conectado
 
 TinyGPSPlus gps;  // Cria um objeto da classe TinyGPSPlus para processar os dados de GPS
+// Utilização da biblioteca 'HardwareSerial'
 HardwareSerial gpsSerial(1);  // Cria um objeto da classe HardwareSerial para a comunicação com o módulo GPS (Serial1 no ESP32)
 
 const long utcOffsetInSeconds = -3 * 3600; // Fuso horário (GMT-3)
