@@ -124,6 +124,7 @@ void setup() {
   timeClient.begin();
 }
 
+// void loop vai executar as tarefas principais de forma contínua
 void loop() {
   // Verifica se é hora de verificar a conexão Wi-Fi
   unsigned long currentMillis = millis();
