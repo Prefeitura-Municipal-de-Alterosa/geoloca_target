@@ -45,11 +45,13 @@ TinyGPSPlus gps;  // Cria um objeto da classe TinyGPSPlus para processar os dado
 // Utilização da biblioteca 'HardwareSerial'
 HardwareSerial gpsSerial(1);  // Cria um objeto da classe HardwareSerial para a comunicação com o módulo GPS (Serial1 no ESP32)
 
-const long utcOffsetInSeconds = -3 * 3600; // Fuso horário (GMT-3)
+const long utcOffsetInSeconds = -3 * 3600; // Definição do fuso horário (GMT-3)
 
+// Inicialização das bibliotecas 'WiFiUdp' e 'NTPClient'
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", utcOffsetInSeconds);
 
+// Inicialização da variável de registro de localização.
 int registro = 1; // Variável para armazenar o número do registro inicial
 
 // Variáveis para a verificação periódica de Wi-Fi
