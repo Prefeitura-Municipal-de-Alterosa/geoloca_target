@@ -286,7 +286,7 @@ void checkAndReconnectWiFi() {
 
 //uso da função para envio de dados 
 int sendToGoogleSheets(String registro, String latitudeStr, String longitudeStr, String dateStr) {
-// teste se a wifi estiver conectada retorna mensagem de tudo certo
+// teste para ver se a wifi estiver conectada, se não, retorna mensagem de erro
   if (WiFi.status() == WL_CONNECTED) {
     Serial.println("Dados enviados ao Google Sheets: ");
 
@@ -339,7 +339,7 @@ int sendToGoogleSheets(String registro, String latitudeStr, String longitudeStr,
       if (httpCode == 200) {
         Serial.println("Dados enviados ao Google Sheets com sucesso!");
         http.end();
-        return 1; // Sucesso
+        return 1; // Sucesso do teste
       } else {
         Serial.println("Falha ao enviar dados ao Google Sheets");
       }
