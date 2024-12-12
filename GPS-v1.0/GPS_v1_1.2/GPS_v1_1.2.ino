@@ -58,6 +58,7 @@ int registro = 1; // Variável para armazenar o número do registro inicial
 unsigned long previousWiFiCheck = 0; // Variável para armazenar o último tempo de verificação
 const unsigned long WiFiCheckInterval = 300000; // Intervalo de 5 minutos em milissegundos
 
+// Inicializa a comunicação do hardware com o código
 void setup() {
   Serial.begin(115200);
   delay(1000);
