@@ -1,4 +1,5 @@
 #include <WiFi.h>
+//biblioteca mais importante para acoplar o código ao spreadsheet
 #include <HTTPClient.h>
 #include <TinyGPS++.h>
 #include <HardwareSerial.h>
@@ -14,6 +15,7 @@
 const char* filename = "/config.txt";
 
 // Protótipos das funções
+// Funções em relação ao registro de dados no SD e no sheet
 void checkAndReconnectWiFi();
 void getGPSData();
 void readSDData();
